@@ -1,5 +1,4 @@
 import math
-import time
 from ctypes import cdll, c_longdouble, c_char_p, create_string_buffer
 
 import cv2 as cv
