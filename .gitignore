@@ -1,10 +1,17 @@
+# custom
+src/CMakeFiles/
+src/CMakeCache.txt
+*.cmake
+src/CMakeLists.txt
+src/Makefile
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
 
 # C extensions
-*.so
+# *.so
 
 # Distribution / packaging
 .Python
