@@ -15,7 +15,7 @@ extern "C" long double mcc(const char *test_image_path, const char *ground_truth
 	
 	double ret1, ret2;
 	ret1 = cv::threshold(test_image, test_image, 127, 255, cv::THRESH_BINARY);
-    ret2 = cv::threshold(ground_truth, ground_truth, 127, 255, cv::THRESH_BINARY);
+    	ret2 = cv::threshold(ground_truth, ground_truth, 127, 255, cv::THRESH_BINARY);
 	
 	if ((ground_truth.size().width != test_image.size().width) || 
 		(ground_truth.size().height != test_image.size().height))
@@ -26,7 +26,7 @@ extern "C" long double mcc(const char *test_image_path, const char *ground_truth
 	cv::Mat mask1, mask2;
 	cv::inRange(test_image, cv::Scalar(0), cv::Scalar(0), mask1);
 	cv::inRange(ground_truth, cv::Scalar(0), cv::Scalar(0), mask2);
-    test_image.setTo(cv::Scalar(1), mask1);
+    	test_image.setTo(cv::Scalar(1), mask1);
 	ground_truth.setTo(cv::Scalar(2), mask2);
 	test_image.convertTo(test_image, CV_32FC1);
 	ground_truth.convertTo(ground_truth, CV_32FC1);
@@ -36,9 +36,9 @@ extern "C" long double mcc(const char *test_image_path, const char *ground_truth
 	cv::multiply(test_image, ground_truth, res);
 	
 	TP = cv::countNonZero(res == 65025);
-    FP = cv::countNonZero(res == 255);
-    TN = cv::countNonZero(res == 2);
-    FN = cv::countNonZero(res == 510);
+    	FP = cv::countNonZero(res == 255);
+    	TN = cv::countNonZero(res == 2);
+    	FN = cv::countNonZero(res == 510);
 	
 	// std::cout << TP << std::endl << TN << std::endl << FN << std::endl << FP << std::endl;
 	
